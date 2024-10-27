@@ -5,29 +5,29 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@android:color/white"> <!-- Set background color to white -->
+    android:background="#f5f5f5"> <!-- Background color set to light gray -->
 
     <!-- Image View for the photo -->
     <ImageView
         android:id="@+id/adventureImageView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="-80dp"
-        android:src="@drawable/test"/> <!-- Ensure this matches the file name without the extension -->
-    <!-- Margin below the image -->
+        android:layout_height="200dp"
+        android:src="@drawable/test"
+        android:scaleType="centerCrop"/>
 
     <!-- Welcome Text -->
     <TextView
         android:id="@+id/welcomeTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="-24dp"
+        android:layout_marginBottom="4dp"
         android:text="Get Started"
         android:textSize="24sp"
         android:textColor="@android:color/black"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="-24dp"
-        android:layout_marginBottom="4dp" /><!-- Reduced bottom margin -->
-    <!-- Adjusted top margin to move it up -->
+        android:layout_gravity="center_horizontal"
+       /> <!-- Moved higher -->
 
     <TextView
         android:id="@+id/signInTextView"
@@ -36,44 +36,104 @@
         android:text="by creating a free account"
         android:textSize="16sp"
         android:textColor="@android:color/darker_gray"
-        android:layout_marginBottom="32dp"
-        android:layout_marginStart="76dp"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="32dp"/>
 
     <!-- Full Name EditText -->
-    <EditText
-        android:id="@+id/fullNameEditText"
+    <!-- Full Name EditText -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Full Name"
-        android:inputType="textPersonName"
-        android:layout_marginBottom="16dp"/> <!-- Space between fields -->
+        android:orientation="horizontal"
+        android:background="@drawable/edittext_background"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp">
+        <EditText
+            android:id="@+id/fullNameEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Full Name"
+            android:inputType="textPersonName"
+            android:background="@android:color/transparent"
+            android:paddingEnd="8dp"/>
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_person"/>
+    </LinearLayout>
+
+    <!-- Repeat this structure for each EditText (Valid Email, Phone Number, Strong Password) -->
+
 
     <!-- Valid Email EditText -->
-    <EditText
-        android:id="@+id/validEmailEditText"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Valid Email"
-        android:inputType="textEmailAddress"
-        android:layout_marginBottom="16dp"/> <!-- Space between fields -->
+        android:orientation="horizontal"
+        android:background="@drawable/edittext_background"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp">
+        <EditText
+            android:id="@+id/validEmailEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Valid Email"
+            android:inputType="textEmailAddress"
+            android:background="@android:color/transparent"
+            android:paddingEnd="8dp"/>
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/email_logo"/>
+    </LinearLayout>
 
     <!-- Phone Number EditText -->
-    <EditText
-        android:id="@+id/phoneNumberEditText"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Phone Number"
-        android:inputType="phone"
-        android:layout_marginBottom="16dp"/> <!-- Space between fields -->
+        android:orientation="horizontal"
+        android:background="@drawable/edittext_background"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp">
+        <EditText
+            android:id="@+id/phoneNumberEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Phone Number"
+            android:inputType="phone"
+            android:background="@android:color/transparent"
+            android:paddingEnd="8dp"/>
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_phone"/>
+    </LinearLayout>
 
     <!-- Strong Password EditText -->
-    <EditText
-        android:id="@+id/strongPasswordEditText"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Strong Password"
-        android:inputType="textPassword"
-        android:layout_marginBottom="16dp"/> <!-- Space between fields -->
+        android:orientation="horizontal"
+        android:background="@drawable/edittext_background"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp">
+        <EditText
+            android:id="@+id/strongPasswordEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Strong Password"
+            android:inputType="textPassword"
+            android:background="@android:color/transparent"
+            android:paddingEnd="8dp"/>
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_lock"/>
+    </LinearLayout>
 
     <!-- Checkbox for Remember Me -->
     <LinearLayout
@@ -95,10 +155,13 @@
         android:id="@+id/nextButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Next"
-        android:backgroundTint="@android:color/holo_blue_light"
+        android:text="NEXT"
+        android:background="@drawable/button_background"
         android:textColor="@android:color/white"
-        android:layout_marginTop="24dp" />
+        android:layout_marginTop="24dp"
+        android:textAllCaps="true"
+        android:padding="16dp"
+        android:layout_marginBottom="16dp"/>
 
     <!-- New Member Text -->
     <TextView
@@ -106,7 +169,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Already a member? Log In"
-        android:textColor="@android:color/holo_blue_dark"
+        android:textColor="#6200EE"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp" />
 </LinearLayout>
-
