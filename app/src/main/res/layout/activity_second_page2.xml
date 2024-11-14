@@ -133,6 +133,7 @@
             android:background="@android:color/transparent"
             android:hint="Strong Password"
             android:inputType="textPassword"
+            android:minHeight="48dp"
             android:paddingEnd="8dp" />
 
         <ImageView
