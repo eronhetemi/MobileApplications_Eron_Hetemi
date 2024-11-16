@@ -1,100 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@android:color/white">
+    android:padding="16dp">
 
-    <!-- Image View for the photo -->
     <ImageView
         android:id="@+id/adventureImageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/test"
-        android:layout_marginBottom="-120dp"/>
+        android:layout_marginBottom="-120dp"
+        android:src="@drawable/test" />
 
-    <!-- Welcome Text -->
     <TextView
         android:id="@+id/welcomeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome back"
-        android:textSize="24sp"
-        android:textColor="@android:color/black"
+        android:layout_marginStart="96dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="96dp"/>
+        android:text="Welcome back"
+        android:textColor="@android:color/black"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/signInTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="sign in to access your account"
-        android:textSize="16sp"
-        android:textColor="@android:color/darker_gray"
+        android:layout_marginStart="76dp"
         android:layout_marginBottom="32dp"
-        android:layout_marginStart="76dp"/>
+        android:text="sign in to access your account"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="16sp" />
 
-    <!-- Email EditText with Icon -->
-    <RelativeLayout
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/RoundedTextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="16dp"
+        android:hint="Enter your email"
+        app:endIconDrawable="@drawable/email_logo"
+        app:endIconMode="custom">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter your email"
-            android:inputType="textEmailAddress"
-            android:background="@drawable/rounded_edit_text"
-            android:padding="16dp"
-            android:drawableEnd="@drawable/email_logo"/>
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <ImageView
-            android:id="@+id/emailIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/email_logo"
-            android:padding="8dp"/>
-    </RelativeLayout>
-
-    <!-- Password EditText with Icon -->
-    <RelativeLayout
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/RoundedTextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="16dp"
+        android:hint="Password"
+        app:endIconDrawable="@drawable/password_logo"
+        app:endIconMode="custom">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:background="@drawable/rounded_edit_text"
-            android:padding="16dp"
-            android:drawableEnd="@drawable/password_logo"/>
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <ImageView
-            android:id="@+id/passwordIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/password_logo"
-            android:padding="8dp"/>
-    </RelativeLayout>
 
-    <!-- Checkbox and Forgot Password text -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
         android:gravity="start"
-        android:layout_marginTop="16dp">
+        android:orientation="horizontal">
 
         <CheckBox
             android:id="@+id/rememberMeCheckBox"
@@ -106,29 +84,26 @@
             android:id="@+id/forgotPasswordTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Forgot password?"
-            android:textColor="@android:color/holo_blue_dark"
             android:layout_marginStart="16dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:text="Forgot password?"
+            android:textColor="@android:color/holo_blue_dark" />
     </LinearLayout>
 
-    <!-- Next Button -->
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/nextButton"
+        style="@style/RoundedMaterialButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Next"
-        android:background="@drawable/rounded_button"
-        android:textColor="@android:color/white"
-        android:layout_marginTop="24dp" />
+        android:layout_marginTop="24dp"
+        android:text="Next" />
 
-    <!-- New Member Text -->
     <TextView
         android:id="@+id/newMemberTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="New Member? Register now"
-        android:textColor="@android:color/holo_blue_dark"
-        android:layout_marginTop="16dp" />
+        android:textColor="@android:color/holo_blue_dark" />
 
 </LinearLayout>
