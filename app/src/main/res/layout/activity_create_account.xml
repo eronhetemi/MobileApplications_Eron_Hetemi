@@ -1,39 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:id="@+id/main_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical"
+    android:gravity="center_horizontal"
     android:padding="16dp">
 
+    <!-- Top Image -->
     <ImageView
         android:id="@+id/adventureImageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="-120dp"
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="24dp"
+        android:scaleType="fitCenter"
         android:src="@drawable/test" />
 
+    <!-- Welcome Text -->
     <TextView
         android:id="@+id/welcomeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
         android:layout_marginBottom="8dp"
         android:text="Welcome back"
         android:textColor="@android:color/black"
-        android:textSize="24sp" />
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
+    <!-- Sign-in Subtitle -->
     <TextView
         android:id="@+id/signInTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginBottom="32dp"
-        android:text="sign in to access your account"
+        android:layout_marginBottom="24dp"
+        android:gravity="center"
+        android:text="Sign in to access your account"
         android:textColor="@android:color/darker_gray"
         android:textSize="16sp" />
 
+    <!-- Email Input -->
     <com.google.android.material.textfield.TextInputLayout
         style="@style/RoundedTextInputLayout"
         android:layout_width="match_parent"
@@ -50,6 +59,7 @@
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <!-- Password Input -->
     <com.google.android.material.textfield.TextInputLayout
         style="@style/RoundedTextInputLayout"
         android:layout_width="match_parent"
@@ -66,12 +76,12 @@
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
-
+    <!-- Remember Me and Forgot Password -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="start"
+        android:layout_marginBottom="24dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <CheckBox
@@ -82,28 +92,34 @@
 
         <TextView
             android:id="@+id/forgotPasswordTextView"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_weight="1"
             android:text="Forgot password?"
             android:textColor="@android:color/holo_blue_dark" />
     </LinearLayout>
 
+    <!-- Next Button -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/nextButton"
         style="@style/RoundedMaterialButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Next" />
+        android:layout_marginBottom="24dp"
+        android:text="Next"
+        android:textAllCaps="false" />
 
+    <!-- New Member Text -->
     <TextView
         android:id="@+id/newMemberTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_gravity="center"
         android:text="New Member? Register now"
-        android:textColor="@android:color/holo_blue_dark" />
+        android:clickable="true"
+        android:focusable="true"
+        android:textColor="#6200EE"
+        android:textStyle="bold"
+        android:padding="15dp" />
 
 </LinearLayout>

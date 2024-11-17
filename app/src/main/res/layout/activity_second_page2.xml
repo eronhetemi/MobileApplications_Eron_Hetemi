@@ -1,64 +1,71 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E3F2FD">
+    android:background="@drawable/background_gradient">
 
-    <LinearLayout
+
+<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:padding="16dp">
 
-        <ImageView
-            android:id="@+id/topImageView"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="16dp"
-            android:contentDescription="Top Image"
-            android:src="@drawable/test" />
+    <ImageView
+        android:id="@+id/topImageView"
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="-50dp"
+        android:contentDescription="Top Image"
+        android:src="@drawable/test"
+        android:scaleType="fitCenter" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/welcomeTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:text="Get Started"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
-            android:textColor="#212121" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/signInTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:gravity="center"
-            android:text="by creating a free account"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-            android:textColor="#757575" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/RoundedTextInputLayout"
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/welcomeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="Get Started"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#2C2C54" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/signInTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:gravity="center"
+        android:text="by creating a free account"
+        android:textSize="14sp"
+        android:textColor="#636e72" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/RoundedTextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:hint="Full Name"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_person"
+        app:endIconTint="@color/black">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fullNameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:hint="Full Name"
-            app:endIconDrawable="@drawable/ic_person"
-            app:endIconSize="24dp"
-            app:endIconTint="@color/black">
+            android:inputType="textPersonName"
+            android:padding="12dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/fullNameEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:padding="12dp" />
-        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
             style="@style/RoundedTextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -66,7 +73,6 @@
             android:hint="Valid Email"
             app:endIconDrawable="@drawable/email_logo"
             app:endIconMode="custom"
-            app:endIconSize="24dp"
             app:endIconTint="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -83,8 +89,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:hint="Phone Number"
-            app:endIconDrawable="@drawable/ic_phone"
-            app:endIconSize="24dp"
+            app:endIconDrawable="@drawable/phone"
             app:endIconTint="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -103,7 +108,6 @@
             android:hint="Strong Password"
             app:endIconDrawable="@drawable/password_logo"
             app:endIconMode="custom"
-            app:endIconSize="24dp"
             app:endIconTint="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -139,12 +143,11 @@
             android:text="NEXT" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/newMemberTextView"
+            android:id="@+id/alreadyMemberTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:gravity="center"
             android:text="Already a member? Log In"
-            android:textColor="#6200EE" />
+            android:textColor="#6200EE"
+            android:gravity="center"/>
     </LinearLayout>
 </ScrollView>

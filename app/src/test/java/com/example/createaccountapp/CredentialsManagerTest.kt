@@ -15,3 +15,10 @@ class CredentialsManagerTest {
     }
 
 }
+
+class CredentialsManager {
+    fun isEmailValid(s: String): Any? {
+        TODO("Not yet implemented")
+    }
+
+}

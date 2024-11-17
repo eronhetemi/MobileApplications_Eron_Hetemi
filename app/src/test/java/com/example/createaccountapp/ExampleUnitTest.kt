@@ -1,6 +1,5 @@
 package com.example.createaccountapp
 
-import com.example.createaccountapp.CredentialsManager
 import org.junit.Test
 import org.junit.jupiter.api.Assertions.*
 
