@@ -47,7 +47,6 @@
             android:layout_marginBottom="16dp"
             android:hint="Full Name"
             app:endIconDrawable="@drawable/ic_person"
-            app:endIconSize="24dp"
             app:endIconTint="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -66,7 +65,6 @@
             android:hint="Valid Email"
             app:endIconDrawable="@drawable/email_logo"
             app:endIconMode="custom"
-            app:endIconSize="24dp"
             app:endIconTint="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -84,7 +82,6 @@
             android:layout_marginBottom="16dp"
             android:hint="Phone Number"
             app:endIconDrawable="@drawable/ic_phone"
-            app:endIconSize="24dp"
             app:endIconTint="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -103,7 +100,6 @@
             android:hint="Strong Password"
             app:endIconDrawable="@drawable/password_logo"
             app:endIconMode="custom"
-            app:endIconSize="24dp"
             app:endIconTint="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -139,12 +135,11 @@
             android:text="NEXT" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/newMemberTextView"
+            android:id="@+id/alreadyMemberTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:gravity="center"
             android:text="Already a member? Log In"
-            android:textColor="#6200EE" />
+            android:textColor="#6200EE"
+            android:gravity="center"/>
     </LinearLayout>
 </ScrollView>
