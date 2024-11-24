@@ -2,9 +2,9 @@ package com.example.createaccountapp
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import android.widget.TextView
 import android.util.Log
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 
 class SecondPageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
