@@ -3,14 +3,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import com.example.createaccountapp.CredentialsManager
 import com.example.createaccountapp.MainActivity
 import com.example.createaccountapp.R
 import com.example.createaccountapp.RegisterFragment
+import com.example.createaccountapp.RecyclerFragment
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 
@@ -33,6 +34,7 @@ class LoginFragment : Fragment() {
         val passwordInput = view.findViewById<TextInputEditText>(R.id.passwordEditText)
         val nextButton = view.findViewById<MaterialButton>(R.id.nextButton)
         val newMemberTextView = view.findViewById<TextView>(R.id.newMemberTextView) // Link the Register text view
+        val goToRecyclerButton = view.findViewById<MaterialButton>(R.id.goToRecyclerButton) // **New button for RecyclerFragment**
 
         // Listener for "Login" button
         nextButton.setOnClickListener {
@@ -67,6 +69,14 @@ class LoginFragment : Fragment() {
         newMemberTextView.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, RegisterFragment()) // Use the correct container ID
+                .addToBackStack(null)
+                .commit()
+        }
+
+        // **Listener for "Go to RecyclerFragment" button**
+        goToRecyclerButton.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, RecyclerFragment()) // Use the correct container ID
                 .addToBackStack(null)
                 .commit()
         }

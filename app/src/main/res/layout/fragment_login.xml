@@ -122,5 +122,19 @@
         android:textStyle="bold"
         android:padding="15dp" />
 
-</LinearLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/goToRecyclerButton"
+        style="@style/RoundedMaterialButton"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="16dp"
+        android:text="Go to Recipes"
+        android:textAllCaps="false"
+        app:iconPadding="16dp"
+        app:iconGravity="textStart"
+        android:padding="8dp" />
 
+
+
+
+</LinearLayout>

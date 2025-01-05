@@ -34,4 +34,10 @@ class MainActivity : AppCompatActivity() {
             .addToBackStack(null)
             .commit()
     }
+    fun switchToRecyclerFragment() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, RecyclerFragment())
+            .addToBackStack(null)
+            .commit()
+    }
 }
