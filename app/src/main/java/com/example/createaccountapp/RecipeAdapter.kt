@@ -7,13 +7,16 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 
 class RecipeAdapter(
-    private val recipeList: List<Recipe> // Lista e recetave që do të shfaqen
-) : RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
+    private val onLikeClick: (Recipe) -> Unit,
+    private val onShareClick: (Recipe) -> Unit
+) : ListAdapter<Recipe, RecipeAdapter.RecipeViewHolder>(RecipeDiffCallback()) {
 
-    // Krijo një ViewHolder që përfaqëson një artikull të vetëm në listë
+    // ViewHolder for each recipe item
     class RecipeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.recipe_image)
         val titleTextView: TextView = itemView.findViewById(R.id.recipe_title)
@@ -22,38 +25,45 @@ class RecipeAdapter(
         val shareButton: Button = itemView.findViewById(R.id.share_button)
     }
 
-    // Inflate layout-in për secilin artikull
+    // Inflating the layout for each item
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_recipe, parent, false)
         return RecipeViewHolder(view)
     }
 
-    // Vendos të dhënat për secilin artikull
+    // Binding the data to the views
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
-        val recipe = recipeList[position]
+        val recipe = getItem(position) // Use getItem() for ListAdapter
+
         holder.imageView.setImageResource(recipe.imageResId)
         holder.titleTextView.text = recipe.title
         holder.descriptionTextView.text = recipe.description
 
-        // Event për klikimin e një artikulli
+        // Click listener for the item view
         holder.itemView.setOnClickListener {
             Toast.makeText(holder.itemView.context, "Clicked: ${recipe.title}", Toast.LENGTH_SHORT).show()
         }
 
-        // Event për butonin Like
+        // Like button click listener
         holder.likeButton.setOnClickListener {
-            Toast.makeText(holder.itemView.context, "Liked: ${recipe.title}", Toast.LENGTH_SHORT).show()
+            onLikeClick(recipe)
         }
 
-        // Event për butonin Share
+        // Share button click listener
         holder.shareButton.setOnClickListener {
-            Toast.makeText(holder.itemView.context, "Shared: ${recipe.title}", Toast.LENGTH_SHORT).show()
+            onShareClick(recipe)
         }
     }
 
-    // Tregon numrin e artikujve në listë
-    override fun getItemCount(): Int {
-        return recipeList.size
+    // DiffUtil callback for comparing recipes
+    class RecipeDiffCallback : DiffUtil.ItemCallback<Recipe>() {
+        override fun areItemsTheSame(oldItem: Recipe, newItem: Recipe): Boolean {
+            return oldItem.id == newItem.id
+        }
+
+        override fun areContentsTheSame(oldItem: Recipe, newItem: Recipe): Boolean {
+            return oldItem == newItem
+        }
     }
 }

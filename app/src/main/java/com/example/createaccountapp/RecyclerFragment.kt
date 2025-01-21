@@ -1,14 +1,23 @@
 package com.example.createaccountapp
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.createaccountapp.Recipe
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 class RecyclerFragment : Fragment() {
+
+    private lateinit var recipeAdapter: RecipeAdapter
+    private lateinit var viewModel: RecipeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -19,13 +28,21 @@ class RecyclerFragment : Fragment() {
         val recyclerView: RecyclerView = view.findViewById(R.id.recipeRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(context)
 
-        val recipes = listOf(
-            Recipe(1, R.drawable.spaghetti, "Spaghetti", "Delicious spaghetti recipe."),
-            Recipe(2, R.drawable.pizza, "Pizza", "Tasty homemade pizza."),
-            Recipe(3, R.drawable.salad, "Salad", "Healthy fresh salad.")
+        // Krijoni adapterin dhe kaloni eventet
+        recipeAdapter = RecipeAdapter(
+            onLikeClick = { recipe -> /* Handle Like action */ },
+            onShareClick = { recipe -> /* Handle Share action */ }
         )
+        recyclerView.adapter = recipeAdapter
 
-        recyclerView.adapter = RecipeAdapter(recipes)
+        // Përdorni ViewModel dhe koleksiononi rezultatet
+        viewModel = ViewModelProvider(this).get(RecipeViewModel::class.java)
+
+        lifecycleScope.launchWhenStarted {
+            viewModel.recipes.collect { recipes -> // Ndrysho 'Recipe' në 'recipes'
+                recipeAdapter.submitList(recipes) // Azhurnoni listën në adapter
+            }
+        }
 
         return view
     }
